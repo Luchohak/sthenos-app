@@ -35,6 +35,18 @@ export default function RootLayout({
             >
               moves
             </Link>
+            <Link
+              href="/workouts"
+              className="rounded py-2 px-4 hover:bg-slate-400 hover:text-slate-800"
+            >
+              workouts
+            </Link>
+            <Link
+              href="/trainees"
+              className="rounded py-2 px-4 hover:bg-slate-400 hover:text-slate-800"
+            >
+              trainees
+            </Link>
           </div>
         </nav>
         {children}

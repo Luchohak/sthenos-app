@@ -23,7 +23,7 @@ export default function CreateMove() {
 
   return (
     <div className="mt-12">
-      <h1 className="text-xl">New Move: </h1>
+      <h1 className="text-xl text-slate-700">New Move: </h1>
       <form onSubmit={createMove} >
         <div>
           <label htmlFor="name" />{" "}

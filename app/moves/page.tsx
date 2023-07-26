@@ -1,6 +1,10 @@
-import Link from "next/link";
+"use client";
 import PocketBase from "pocketbase";
 import CreateMove from "./[id]/CreateMove";
+import Modal from "../components/UI/Modal";
+import { useState, useEffect } from "react";
+import Button from "../components/UI/Button";
+import MoveDetailPage from "./[moveDetail]";
 
 export const dynamic = "auto",
   dynamicParams = true,
@@ -16,34 +20,92 @@ async function getMoves() {
   return data?.items as any[];
 }
 
-export default async function MovesPage() {
-  const moves = await getMoves();
+const MovesPage = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [movesList, setMovesList] = useState<any[]>([]);
+  const [selectedMove, setSelectedMove] = useState<any>(null);
+
+  useEffect(() => {
+    const fetchMoves = async () => {
+      try {
+        const movesData = await getMoves();
+        setMovesList(movesData);
+      } catch (error) {
+        // Handle any errors that might occur during the data fetching process
+        console.error("Error fetching moves:", error);
+      }
+    };
+
+    fetchMoves();
+  }, []);
+
+  const closeModalHandler = () => {
+    setIsModalOpen(false);
+  };
+
+  const openModalHandler = () => {
+    setIsModalOpen(true);
+  };
+
+  const handleMoveClick = (move: any) => {
+    setSelectedMove(move);
+    console.log("selected move: ", move.name);
+  };
+
+  const handleMoveClose = () => {
+    setSelectedMove(null);
+  };
+
   return (
     <section>
       <h1 className="text-2xl">Moves</h1>
       <div className="grid grid-cols-4 gap-5">
-        {moves.map((move) => (
-          <Move key={move.id} move={move} />
+        {movesList.map((move) => (
+          <Move
+            key={move.id}
+            move={move}
+            onClick={() => handleMoveClick(move)}
+          />
         ))}
       </div>
+      <Button
+        className="text-2xl"
+        label="+"
+        onClick={openModalHandler}
+      ></Button>
+      <Modal onClose={closeModalHandler} isOpen={isModalOpen}>
+        <CreateMove />
+      </Modal>
 
-      <CreateMove />
+      {selectedMove && (
+        <Modal isOpen={true} onClose={handleMoveClose}>
+          <h2 className="text-2xl text-slate-900 pt-8">
+            <MoveDetailPage 
+              id={selectedMove.id}
+              name={selectedMove.name}
+              description={selectedMove.description}
+            />
+          </h2>
+        </Modal>
+      )}
     </section>
   );
-}
+};
 
-function Move({ move }: any) {
-  const { id, name, description } = move || {};
+export default MovesPage;
+
+function Move({ move, onClick }: any) {
+  const { name, description } = move || {};
 
   return (
-    <Link
-      href={`/moves/${id}`}
+    <div
       className="rounded py-4 px-3 bg-slate-500 text-slate-200  hover:bg-slate-200 hover:text-slate-500"
+      onClick={onClick}
     >
       <div>
-        <h2 className="text-lg">{move.name}</h2>
-        <p className="text-md">{move.description}</p>
+        <h2 className="text-lg">{name}</h2>
+        <p className="text-md">{description}</p>
       </div>
-    </Link>
+    </div>
   );
 }
