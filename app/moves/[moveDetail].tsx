@@ -9,7 +9,6 @@ const MoveDetailPage: React.FC<MoveDetailProps> = ({
   name,
   description,
 }) => {
-  console.log(id);
   return (
     <>
       <h1 className="text-2xl">Move - {name}</h1>
