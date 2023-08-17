@@ -30,6 +30,12 @@ export default function RootLayout({
               home
             </Link>
             <Link
+              href="/intro-survey"
+              className="rounded py-2 px-4 hover:bg-slate-400 hover:text-slate-800"
+            >
+              survey
+            </Link>
+            <Link
               href="/moves"
               className="rounded py-2 px-4 hover:bg-slate-400 hover:text-slate-800"
             >
