@@ -94,6 +94,12 @@ const MovesPage = () => {
 
 export default MovesPage;
 
+export interface Move {
+  id: string;
+  name: string;
+  description: string;
+}
+
 function Move({ move, onClick }: any) {
   const { name, description } = move || {};
 
