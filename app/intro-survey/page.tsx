@@ -4,12 +4,16 @@ import { useState } from "react";
 import AgeSurvey from "./AgeSurvey";
 import HeightSurvey from "./HeightSurvey";
 import WeightSurvey from "./WeightSurvey";
+import NameSurvey from "./NameSurvey";
+import SexSurvey from "./SexSurvey";
+import GoalsSurvey from "./GoalsSurvey";
+import ExperienceSurvey from "./ExperienceSurvey";
 
 const SurveyPage = () => {
   const [step, setStep] = useState(1);
 
   const nextStepHandler = () => {
-    if(step < 3)
+    if(step < 7)
     setStep(step + 1);
   };
 
@@ -20,12 +24,20 @@ const SurveyPage = () => {
 
   const stepManager = () => {
     switch (step) {
-      case 1:
-        return <AgeSurvey />;
+      case 1: 
+        return <NameSurvey />
       case 2:
-        return <HeightSurvey />;
+        return <AgeSurvey />;
       case 3:
+        return <HeightSurvey />;
+      case 4:
         return <WeightSurvey />;
+      case 5: 
+        return <SexSurvey />;
+      case 6: 
+        return <GoalsSurvey />
+      case 7: 
+      return <ExperienceSurvey />
       default:
         return <p>Get started</p>;
     }
