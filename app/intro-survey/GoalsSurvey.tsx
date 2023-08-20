@@ -16,7 +16,7 @@ const GoalsSurvey = () => {
         <input type="checkbox" id="goal5" name="goal5" />
         <label htmlFor="goal5">Develop Endurance</label>
         <input type="checkbox" id="goal6" name="goal6" />
-        <label htmlFor="goal6">Get better at specific movements</label>
+        <label htmlFor="goal6">Get better at specific skills</label>
       </div>
     </div>
   );

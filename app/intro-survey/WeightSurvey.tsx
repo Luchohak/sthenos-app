@@ -1,6 +1,16 @@
 const WeightSurvey = () => {
+    const weightOptions = Array.from({ length: 71 }, (_, index) =>
+    (index + 50).toString()
+  );
     return(
-        <p>Show me your weight</p>
+        <div>
+            <label>Select your weight</label>
+            <select>
+                {weightOptions.map((value) => {
+                    return <option>{value}</option>
+                })}
+            </select>
+        </div>
     )
 }
 
