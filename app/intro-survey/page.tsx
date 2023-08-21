@@ -1,13 +1,13 @@
 "use client";
 
 import { useState } from "react";
-import AgeSurvey from "./AgeSurvey";
-import HeightSurvey from "./HeightSurvey";
-import WeightSurvey from "./WeightSurvey";
-import NameSurvey from "./NameSurvey";
-import SexSurvey from "./SexSurvey";
-import GoalsSurvey from "./GoalsSurvey";
-import ExperienceSurvey from "./ExperienceSurvey";
+import AgeSurvey from "./steps/AgeSurvey";
+import HeightSurvey from "./steps/HeightSurvey";
+import WeightSurvey from "./steps/WeightSurvey";
+import NameSurvey from "./steps/NameSurvey";
+import SexSurvey from "./steps/SexSurvey";
+import GoalsSurvey from "./steps/GoalsSurvey";
+import ExperienceSurvey from "./steps/ExperienceSurvey";
 
 const SurveyPage = () => {
   const [step, setStep] = useState(1);
