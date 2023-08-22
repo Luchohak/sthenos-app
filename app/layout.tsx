@@ -22,7 +22,7 @@ export default function RootLayout({
     >
       <body>
         <nav className="bg-slate-600 px-3 py-2 mb-2">
-          <div className="flex items-center justify-start">
+          <div className="flex items-center justify-between">
             <Link
               href="/"
               className="rounded py-2 px-4 hover:bg-slate-400 hover:text-slate-800"
