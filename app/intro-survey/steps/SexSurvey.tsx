@@ -16,7 +16,7 @@ const SexSurvey = () => {
   return (
     <Fragment>
       <div className="w-full my-4 text-center">
-        <h1 className="inline text-3xl">select your sex</h1>
+        <h1 className="text-3xl">select your sex</h1>
       </div>
       <div className="flex justify-center gap-8 h-3/6">
         <Button
