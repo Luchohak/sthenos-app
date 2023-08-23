@@ -49,7 +49,7 @@ const SurveyPage = () => {
   };
 
   return (
-    <section className="w-1/2">
+    <section className="w-1/2 h-full">
       {stepManager()}
       {step === 0 ? (
         ""
