@@ -29,7 +29,7 @@ const GoalsSurvey = () => {
       <div className="flex flex-col gap-3">
         {goalsList.map((goal) => (
           <Button
-            className={` bg-yellow-200 hover:bg-yellow-700 ${
+            className={` bg-yellow-200 hover:bg-yellow-500 ${
               selectedGoals.includes(goal) ? "border-2 bg-yellow-500" : ""
             }`}
             key={goal}
