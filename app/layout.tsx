@@ -20,7 +20,7 @@ export default function RootLayout({
       lang="en"
       className={`${inter.className} px-6 py-4 bg-slate-800 text-slate-200 h-screen`}
     >
-      <body>
+      <body className="h-full">
         <nav className="bg-slate-600 px-3 py-2 mb-2">
           <div className="flex items-center justify-between">
             <Link
