@@ -21,8 +21,6 @@ const GoalsSurvey = () => {
     }
   };
 
-  console.log(selectedGoals);
-
   return (
     <div>
       <div className="w-full my-4 text-center">
