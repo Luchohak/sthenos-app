@@ -8,7 +8,7 @@ const HeightSurvey = () => {
       <label className="my-4 text-3xl" htmlFor="height">enter your height</label>
       <select id="height" className="block w-full p-4 text-slate-900 text-center text-2xl bg-white border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring focus:ring-blue-500">
         {heightOptions.map((value) => {
-          return <option value={value}>{value} cm</option>
+          return <option key={value} value={value}>{value} cm</option>
         })}
       </select>
     </div>
