@@ -30,7 +30,7 @@ const GoalsSurvey = () => {
         {goalsList.map((goal) => (
           <Button
             className={` bg-yellow-200 hover:bg-yellow-500 ${
-              selectedGoals.includes(goal) ? "border-2 bg-yellow-500" : ""
+              selectedGoals.includes(goal) ? "text-white border-2 bg-yellow-500" : ""
             }`}
             key={goal}
             label={goal}
