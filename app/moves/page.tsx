@@ -69,7 +69,7 @@ const MovesPage = () => {
         ))}
       </div>
       <Button
-        className="text-2xl"
+        className="text-2xl bg-slate-200 hover:bg-slate-800"
         label="+"
         onClick={openModalHandler}
       ></Button>
