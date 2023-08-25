@@ -1,6 +1,7 @@
 import "./globals.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import { Providers } from "./redux/provider";
 import Link from "next/link";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -55,7 +56,7 @@ export default function RootLayout({
             </Link>
           </div>
         </nav>
-        {children}
+        <Providers>{children}</Providers>
       </body>
     </html>
   );
