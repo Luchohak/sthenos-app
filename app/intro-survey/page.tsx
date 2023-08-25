@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+
 import AgeSurvey from "./steps/AgeSurvey";
 import HeightSurvey from "./steps/HeightSurvey";
 import WeightSurvey from "./steps/WeightSurvey";
@@ -14,7 +15,7 @@ import ThankYouSurvey from "./steps/ThankYouSurvey";
 
 const SurveyPage = () => {
   const [step, setStep] = useState(0);
-
+  
   const nextStepHandler = () => {
     if (step < 8) setStep(step + 1);
   };
@@ -64,13 +65,16 @@ const SurveyPage = () => {
             label="back"
           />
           <Button
-            className={`w-1/4 ${step !== 7  ?  "bg-slate-200 hover:bg-slate-800" : " bg-green-200 hover:bg-green-700" } `}
+            className={`w-1/4 ${
+              step !== 7
+                ? "bg-slate-200 hover:bg-slate-800"
+                : " bg-green-200 hover:bg-green-700"
+            } `}
             onClick={nextStepHandler}
-            label={`${step !== 7 ? 'next' : 'complete'}`}
+            label={`${step !== 7 ? "next" : "complete"}`}
           />
         </div>
       )}
-     
     </section>
   );
 };
