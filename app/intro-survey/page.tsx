@@ -10,12 +10,13 @@ import GoalsSurvey from "./steps/GoalsSurvey";
 import ExperienceSurvey from "./steps/ExperienceSurvey";
 import Button from "../components/UI/Button";
 import GetStartedSurvey from "./steps/GetStartedSurvey";
+import ThankYouSurvey from "./steps/ThankYouSurvey";
 
 const SurveyPage = () => {
   const [step, setStep] = useState(0);
 
   const nextStepHandler = () => {
-    if (step < 7) setStep(step + 1);
+    if (step < 8) setStep(step + 1);
   };
 
   const previousStepHandler = () => {
@@ -38,6 +39,8 @@ const SurveyPage = () => {
         return <GoalsSurvey />;
       case 7:
         return <ExperienceSurvey />;
+      case 8:
+        return <ThankYouSurvey />;
       default:
         return (
           <GetStartedSurvey
@@ -51,22 +54,23 @@ const SurveyPage = () => {
   return (
     <section className="w-1/2 h-full">
       {stepManager()}
-      {step === 0 ? (
+      {step === 0 || step === 8 ? (
         ""
       ) : (
         <div className="flex items-center justify-between mt-12">
           <Button
-            className="w-1/4"
+            className="w-1/4 bg-slate-200 hover:bg-slate-800"
             onClick={previousStepHandler}
-            label="Previous"
+            label="back"
           />
           <Button
-            className="w-1/4"
+            className={`w-1/4 ${step !== 7  ?  "bg-slate-200 hover:bg-slate-800" : " bg-green-200 hover:bg-green-700" } `}
             onClick={nextStepHandler}
-            label="Next"
+            label={`${step !== 7 ? 'next' : 'complete'}`}
           />
         </div>
       )}
+     
     </section>
   );
 };

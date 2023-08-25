@@ -1,20 +1,45 @@
+import Button from "@/app/components/UI/Button";
+import { useState } from "react";
+
 const ExperienceSurvey = () => {
+  const [selectedExperience, setSelectedExperience] = useState<string[]>([]);
+
+  const experienceList = [
+    "I've done bodyweight training for some time",
+    "I've lifted weights before",
+    "I've been in a team of some sort (sports, crossfit, powerlifting)",
+    "I've practiced yoga",
+    "I run/jog/hike/swim regularly",
+  ];
+
+  const toggleExperienceItem = (experienceItem: string) => {
+    if (selectedExperience.includes(experienceItem)) {
+      setSelectedExperience(
+        selectedExperience.filter((item) => item !== experienceItem)
+      );
+    } else {
+      setSelectedExperience([...selectedExperience, experienceItem]);
+    }
+  };
+
   return (
     <div>
-      <div>
-        <h1>Select any previous experience</h1>
+      <div className="w-full my-4 text-center">
+        <h1 className="text-3xl">Select any previous experience</h1>
       </div>
-      <div>
-        <input type="checkbox" id="exp1" name="exp1" />
-        <label htmlFor="exp1">I've done bodyweight training for some time</label>
-        <input type="checkbox" id="exp2" name="exp2" />
-        <label htmlFor="exp2">I've lifted weights before</label>
-        <input type="checkbox" id="exp3" name="exp3" />
-        <label htmlFor="exp3">I've been in a team of some sort (sports, crossfit, powerlifting) </label>
-        <input type="checkbox" id="exp4" name="exp4" />
-        <label htmlFor="exp4">I've practiced yoga</label>
-        <input type="checkbox" id="exp5" name="exp5" />
-        <label htmlFor="exp5">I run/jog/hike/swim regularly</label>
+      <div className="flex flex-col gap-3">
+        {experienceList.map((experienceItem) => (
+          <Button
+            className={`bg-purple-300 hover:bg-purple-700 ${
+              selectedExperience.includes(experienceItem)
+                ? "text-white border-2 bg-purple-700"
+                : ""
+            }`}
+            key={experienceItem}
+            label={experienceItem}
+            onClick={() => toggleExperienceItem(experienceItem)}
+          />
+        ))}
       </div>
     </div>
   );
