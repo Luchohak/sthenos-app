@@ -30,9 +30,9 @@ const ExperienceSurvey = () => {
       <div className="flex flex-col gap-3">
         {experienceList.map((experienceItem) => (
           <Button
-            className={`bg-purple-300 hover:bg-purple-800 ${
+            className={`bg-purple-300 hover:bg-purple-700 ${
               selectedExperience.includes(experienceItem)
-                ? "text-white border-2 bg-purple-800"
+                ? "text-white border-2 bg-purple-700"
                 : ""
             }`}
             key={experienceItem}

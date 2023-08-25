@@ -15,7 +15,7 @@ const GetStartedSurvey: React.FC<GetStartedProps> = ({
         <h1 className="text-3xl my-4">help your coach get to know you better</h1>
       </div>
       <div>
-        <Button className="" onClick={onStart} label={buttonLabel} />
+        <Button className="bg-slate-50 hover:bg-slate-800" onClick={onStart} label={buttonLabel} />
       </div>
     </div>
   );
