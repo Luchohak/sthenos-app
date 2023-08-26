@@ -3,15 +3,19 @@ import { createSlice } from "@reduxjs/toolkit";
 const userSlice = createSlice({
   name: "user",
   initialState: {
-    firstName: "test",
+    userName: "",
+    userAge: ""
   },
   reducers: {
-    setFirstName: (state, action) => {
-      state.firstName = action.payload;
+    setUserName: (state, action) => {
+      state.userName = action.payload;
+    },
+    setUserAge: (state, action) => {
+        state.userAge = action.payload; 
     },
   },
 });
 
-export const { setFirstName } = userSlice.actions;
+export const { setUserName, setUserAge } = userSlice.actions;
 
 export default userSlice.reducer;
