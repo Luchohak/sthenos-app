@@ -1,4 +1,11 @@
-const AgeSurvey = () => {
+import React, { ChangeEvent } from "react";
+
+interface AgeSurveyProps {
+  age: string;
+  onAgeSelect: (event: ChangeEvent<HTMLSelectElement>) => void;
+}
+
+const AgeSurvey: React.FC<AgeSurveyProps> = ({ age, onAgeSelect }) => {
   const ageOptions = Array.from({ length: 65 }, (_, index) =>
     (index + 16).toString()
   );
@@ -8,9 +15,18 @@ const AgeSurvey = () => {
       <label className="my-4 text-3xl" htmlFor="birthday">
         how old r u?
       </label>
-      <select id="birthday" className="block w-full p-4 text-slate-900 text-center text-2xl bg-white border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring focus:ring-blue-500">
+      <select
+        id="birthday"
+        className="block w-full p-4 text-slate-900 text-center text-2xl bg-white border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring focus:ring-blue-500"
+        onChange={(event) => onAgeSelect(event)}
+        value={age}
+      >
         {ageOptions.map((value) => {
-          return <option key={value} className="text-center" value={value}>{value}</option>;
+          return (
+            <option key={value} className="text-center" value={value}>
+              {value}
+            </option>
+          );
         })}
       </select>
     </div>

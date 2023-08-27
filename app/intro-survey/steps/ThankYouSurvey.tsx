@@ -1,4 +1,3 @@
-import Button from "@/app/components/UI/Button";
 import Link from "next/link";
 
 const ThankYouSurvey = () => {
