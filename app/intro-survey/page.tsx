@@ -15,8 +15,8 @@ import Button from "../components/UI/Button";
 import GetStartedSurvey from "./steps/GetStartedSurvey";
 import ThankYouSurvey from "./steps/ThankYouSurvey";
 
-import { setUserName, setUserAge } from "../redux/userSlice";
-import { nameSurveySelector, ageSurveySelector } from "../redux/selectors";
+import { setUserName, setUserAge, setUserHeight } from "../redux/userSlice";
+import { nameSurveySelector, ageSurveySelector, heightSurveySelector } from "../redux/selectors";
 
 const SurveyPage = () => {
   const [step, setStep] = useState(0);
@@ -24,6 +24,7 @@ const SurveyPage = () => {
 
   const userName = useSelector(nameSurveySelector);
   const userAge = useSelector(ageSurveySelector);
+  const userHeight = useSelector(heightSurveySelector);
 
   const nextStepHandler = () => {
     if (step < 8) setStep(step + 1);
@@ -41,6 +42,10 @@ const SurveyPage = () => {
     dispatch(setUserAge(event.target.value));
   };
 
+  const heightSelectHandler = (event: ChangeEvent<HTMLSelectElement>) => {
+    dispatch(setUserHeight(event.target.value));
+  }
+
   const stepManager = () => {
     switch (step) {
       case 1:
@@ -48,7 +53,7 @@ const SurveyPage = () => {
       case 2:
         return <AgeSurvey age={userAge} onAgeSelect={ageSelectHandler} />;
       case 3:
-        return <HeightSurvey />;
+        return <HeightSurvey height={userHeight} onHeightSelect={heightSelectHandler}/>;
       case 4:
         return <WeightSurvey />;
       case 5:

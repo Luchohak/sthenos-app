@@ -4,7 +4,8 @@ const userSlice = createSlice({
   name: "user",
   initialState: {
     userName: "",
-    userAge: ""
+    userAge: "",
+    userHeight: "",
   },
   reducers: {
     setUserName: (state, action) => {
@@ -13,9 +14,12 @@ const userSlice = createSlice({
     setUserAge: (state, action) => {
         state.userAge = action.payload; 
     },
+    setUserHeight: (state, action) => {
+        state.userHeight = action.payload;
+    },
   },
 });
 
-export const { setUserName, setUserAge } = userSlice.actions;
+export const { setUserName, setUserAge, setUserHeight } = userSlice.actions;
 
 export default userSlice.reducer;
