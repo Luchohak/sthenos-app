@@ -3,16 +3,16 @@
 import { useState } from "react";
 import { ChangeEvent } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import Button from "../components/UI/Button";
 
+import GetStartedSurvey from "./steps/GetStartedSurvey";
+import NameSurvey from "./steps/NameSurvey";
 import AgeSurvey from "./steps/AgeSurvey";
 import HeightSurvey from "./steps/HeightSurvey";
 import WeightSurvey from "./steps/WeightSurvey";
-import NameSurvey from "./steps/NameSurvey";
 import SexSurvey from "./steps/SexSurvey";
 import GoalsSurvey from "./steps/GoalsSurvey";
 import ExperienceSurvey from "./steps/ExperienceSurvey";
-import Button from "../components/UI/Button";
-import GetStartedSurvey from "./steps/GetStartedSurvey";
 import ThankYouSurvey from "./steps/ThankYouSurvey";
 
 import {
@@ -20,12 +20,14 @@ import {
   setUserAge,
   setUserHeight,
   setUserWeight,
+  setUserSex,
 } from "../redux/userSlice";
 import {
   nameSurveySelector,
   ageSurveySelector,
   heightSurveySelector,
   weightSurveySelector,
+  sexSurveySelector,
 } from "../redux/selectors";
 
 const SurveyPage = () => {
@@ -36,14 +38,7 @@ const SurveyPage = () => {
   const userAge = useSelector(ageSurveySelector);
   const userHeight = useSelector(heightSurveySelector);
   const userWeight = useSelector(weightSurveySelector);
-
-  const nextStepHandler = () => {
-    if (step < 8) setStep(step + 1);
-  };
-
-  const previousStepHandler = () => {
-    if (step > 0) setStep(step - 1);
-  };
+  const userSex = useSelector(sexSurveySelector);
 
   const nameChangeHandler = (event: ChangeEvent<HTMLInputElement>) => {
     dispatch(setUserName(event.target.value));
@@ -59,6 +54,18 @@ const SurveyPage = () => {
 
   const weightSelectHandler = (event: ChangeEvent<HTMLSelectElement>) => {
     dispatch(setUserWeight(event.target.value));
+  };
+
+  const sexSelectHandler = (selectedSex: string) => {
+    dispatch(setUserSex(selectedSex));
+  };
+
+  const nextStepHandler = () => {
+    if (step < 8) setStep(step + 1);
+  };
+
+  const previousStepHandler = () => {
+    if (step > 0) setStep(step - 1);
   };
 
   const stepManager = () => {
@@ -82,7 +89,7 @@ const SurveyPage = () => {
           />
         );
       case 5:
-        return <SexSurvey />;
+        return <SexSurvey sex={userSex} onSexSelect={sexSelectHandler} />;
       case 6:
         return <GoalsSurvey />;
       case 7:

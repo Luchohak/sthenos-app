@@ -7,6 +7,7 @@ const userSlice = createSlice({
     userAge: "",
     userHeight: "",
     userWeight: "",
+    userSex: "",
   },
   reducers: {
     setUserName: (state, action) => {
@@ -21,10 +22,18 @@ const userSlice = createSlice({
     setUserWeight: (state, action) => {
       state.userWeight = action.payload;
     },
+    setUserSex: (state, action) => {
+      state.userSex = action.payload;
+    },
   },
 });
 
-export const { setUserName, setUserAge, setUserHeight, setUserWeight } =
-  userSlice.actions;
+export const {
+  setUserName,
+  setUserAge,
+  setUserHeight,
+  setUserWeight,
+  setUserSex,
+} = userSlice.actions;
 
 export default userSlice.reducer;
