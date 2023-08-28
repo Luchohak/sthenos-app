@@ -1,8 +1,13 @@
 import Button from "@/app/components/UI/Button";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
-const GoalsSurvey = () => {
-  const [selectedGoals, setSelectedGoals] = useState<string[]>([]);
+interface GoalsSurveyProps {
+  goals: string[];
+  onSelectGoal: (goals: string[]) => void;
+}
+
+const GoalsSurvey: React.FC<GoalsSurveyProps> = ({ goals, onSelectGoal }) => {
+  const [selectedGoals, setSelectedGoals] = useState<string[]>(goals);
 
   const goalsList = [
     "Lose weight",
@@ -21,6 +26,10 @@ const GoalsSurvey = () => {
     }
   };
 
+  useEffect(() => {
+    onSelectGoal(selectedGoals);
+  },[selectedGoals, onSelectGoal])
+
   return (
     <div>
       <div className="w-full my-4 text-center">
@@ -30,7 +39,9 @@ const GoalsSurvey = () => {
         {goalsList.map((goal) => (
           <Button
             className={` bg-yellow-200 hover:bg-yellow-500 ${
-              selectedGoals.includes(goal) ? "text-white border-2 bg-yellow-500" : ""
+              selectedGoals.includes(goal)
+                ? "text-white border-2 bg-yellow-500"
+                : ""
             }`}
             key={goal}
             label={goal}

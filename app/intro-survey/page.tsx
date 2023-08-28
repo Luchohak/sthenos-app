@@ -21,6 +21,7 @@ import {
   setUserHeight,
   setUserWeight,
   setUserSex,
+  setUserGoals,
 } from "../redux/userSlice";
 import {
   nameSurveySelector,
@@ -28,6 +29,7 @@ import {
   heightSurveySelector,
   weightSurveySelector,
   sexSurveySelector,
+  goalsSurveySelector,
 } from "../redux/selectors";
 
 const SurveyPage = () => {
@@ -39,6 +41,7 @@ const SurveyPage = () => {
   const userHeight = useSelector(heightSurveySelector);
   const userWeight = useSelector(weightSurveySelector);
   const userSex = useSelector(sexSurveySelector);
+  const userGoals = useSelector(goalsSurveySelector);
 
   const nameChangeHandler = (event: ChangeEvent<HTMLInputElement>) => {
     dispatch(setUserName(event.target.value));
@@ -59,6 +62,10 @@ const SurveyPage = () => {
   const sexSelectHandler = (selectedSex: string) => {
     dispatch(setUserSex(selectedSex));
   };
+
+  const goalSelectHandler = (goals: string[]) => {
+    dispatch(setUserGoals(goals));
+  }
 
   const nextStepHandler = () => {
     if (step < 8) setStep(step + 1);
@@ -91,7 +98,7 @@ const SurveyPage = () => {
       case 5:
         return <SexSurvey sex={userSex} onSexSelect={sexSelectHandler} />;
       case 6:
-        return <GoalsSurvey />;
+        return <GoalsSurvey  goals={userGoals} onSelectGoal={goalSelectHandler}/>;
       case 7:
         return <ExperienceSurvey />;
       case 8:
