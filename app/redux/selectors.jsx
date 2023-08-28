@@ -9,3 +9,5 @@ export const weightSurveySelector = (state) => state.rootReducer.user.userWeight
 export const sexSurveySelector = (state) => state.rootReducer.user.userSex;
 
 export const goalsSurveySelector = (state) => state.rootReducer.user.userGoals;
+
+export const experienceSurveySelector = (state) => state.rootReducer.user.userExperience

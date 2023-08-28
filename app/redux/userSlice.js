@@ -9,6 +9,7 @@ const userSlice = createSlice({
     userWeight: "",
     userSex: "",
     userGoals: [],
+    userExperience: [],
   },
   reducers: {
     setUserName: (state, action) => {
@@ -28,6 +29,9 @@ const userSlice = createSlice({
     },
     setUserGoals: (state, action) => {
       state.userGoals = action.payload;
+    },
+    setUserExperience: (state, action) => {
+      state.userExperience = action.payload;
     }
   },
 });
@@ -39,6 +43,7 @@ export const {
   setUserWeight,
   setUserSex,
   setUserGoals,
+  setUserExperience,
 } = userSlice.actions;
 
 export default userSlice.reducer;

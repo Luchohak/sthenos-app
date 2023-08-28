@@ -1,10 +1,15 @@
 import Button from "@/app/components/UI/Button";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
-const ExperienceSurvey = () => {
+interface ExperienceSurveyProps {
+  experienceList: string[];
+  onExperienceSelect: (experience: string[]) => void;
+}
+
+const ExperienceSurvey: React.FC<ExperienceSurveyProps> = ({experienceList, onExperienceSelect}) => {
   const [selectedExperience, setSelectedExperience] = useState<string[]>([]);
 
-  const experienceList = [
+  const experienceEntries = [
     "I've done bodyweight training for some time",
     "I've lifted weights before",
     "I've been in a team of some sort (sports, crossfit, powerlifting)",
@@ -22,13 +27,19 @@ const ExperienceSurvey = () => {
     }
   };
 
+  useEffect(() => {
+    onExperienceSelect(selectedExperience)
+  }, [onExperienceSelect, selectedExperience])
+
+
+
   return (
     <div>
       <div className="w-full my-4 text-center">
         <h1 className="text-3xl">Select any previous experience</h1>
       </div>
       <div className="flex flex-col gap-3">
-        {experienceList.map((experienceItem) => (
+        {experienceEntries.map((experienceItem) => (
           <Button
             className={`bg-purple-300 hover:bg-purple-700 ${
               selectedExperience.includes(experienceItem)
