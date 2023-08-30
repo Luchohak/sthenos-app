@@ -3,11 +3,11 @@ import { useState, useEffect } from "react";
 
 interface ExperienceSurveyProps {
   experienceList: string[];
-  onExperienceSelect: (experience: string[]) => void;
+  onExperienceSelect: (experienceList: string[]) => void;
 }
 
 const ExperienceSurvey: React.FC<ExperienceSurveyProps> = ({experienceList, onExperienceSelect}) => {
-  const [selectedExperience, setSelectedExperience] = useState<string[]>([]);
+  const [selectedExperience, setSelectedExperience] = useState<string[]>(experienceList);
 
   const experienceEntries = [
     "I've done bodyweight training for some time",
