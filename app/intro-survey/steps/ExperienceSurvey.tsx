@@ -38,12 +38,12 @@ const ExperienceSurvey: React.FC<ExperienceSurveyProps> = ({experienceList, onEx
       <div className="w-full my-4 text-center">
         <h1 className="text-3xl">Select any previous experience</h1>
       </div>
-      <div className="flex flex-col gap-3">
+      <div className="flex flex-col gap-3 w-4/6 m-auto">
         {experienceEntries.map((experienceItem) => (
           <Button
             className={`bg-purple-300 hover:bg-purple-700 ${
               selectedExperience.includes(experienceItem)
-                ? "text-white border-2 bg-purple-700"
+                ? "text-white border-4 bg-purple-700"
                 : ""
             }`}
             key={experienceItem}

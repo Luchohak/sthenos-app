@@ -35,12 +35,12 @@ const GoalsSurvey: React.FC<GoalsSurveyProps> = ({ goals, onSelectGoal }) => {
       <div className="w-full my-4 text-center">
         <h1 className="text-3xl">choose the main reasons why you're here</h1>
       </div>
-      <div className="flex flex-col gap-3">
+      <div className="flex flex-col gap-3 w-4/6 m-auto">
         {goalsList.map((goal) => (
           <Button
             className={` bg-yellow-200 hover:bg-yellow-500 ${
               selectedGoals.includes(goal)
-                ? "text-white border-2 bg-yellow-500"
+                ? "text-white border-4 bg-yellow-500"
                 : ""
             }`}
             key={goal}
