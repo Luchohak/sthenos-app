@@ -3,5 +3,5 @@ export default function SurveyLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return <div className="flex items-center justify-center h-4/6">{children}</div>;
+  return <div className="flex items-center justify-center h-5/6">{children}</div>;
 }

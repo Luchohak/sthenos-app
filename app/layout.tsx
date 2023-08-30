@@ -1,6 +1,7 @@
 import "./globals.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import { Providers } from "./redux/provider";
 import Link from "next/link";
 import { UserProvider } from '@auth0/nextjs-auth0/client'
 
@@ -19,10 +20,10 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${inter.className} px-6 py-4 bg-slate-600 text-slate-200 h-screen`}
+      className={`${inter.className} px-6 py-4 bg-slate-500 text-slate-200 h-screen`}
     >
       <body className="h-full">
-        <nav className="bg-slate-700 px-3 py-2 mb-2">
+        <nav className="bg-slate-800 px-3 py-2 mb-2">
           <div className="flex items-center justify-between">
             <Link
               href="/"
@@ -56,7 +57,7 @@ export default function RootLayout({
             </Link>
           </div>
         </nav>
-        {children}
+        <Providers>{children}</Providers>
       </body>
     </html>
   );

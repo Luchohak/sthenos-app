@@ -1,24 +1,33 @@
 import Button from "@/app/components/UI/Button";
 import { Fragment, useState } from "react";
+import React from "react";
 
-const SexSurvey = () => {
-  const [gender, setGender] = useState<string>("");
+interface SexSurveyProps {
+  sex: string;
+  onSexSelect: (selectedSex: string) => void;
+}
+
+const SexSurvey: React.FC<SexSurveyProps> = ({ sex, onSexSelect }) => {
+  const [gender, setGender] = useState<string>(sex);
   const maleSelectHandler = () => {
     setGender("male");
+    onSexSelect("male");
   };
   const femaleSelectHandler = () => {
     setGender("female");
+    onSexSelect("female");
   };
   const otherSelectHandler = () => {
     setGender("other");
+    onSexSelect("other");
   };
 
   return (
-    <Fragment>
+    <div className="flex flex-col h-full w-full justify-center">
       <div className="w-full my-4 text-center">
         <h1 className="text-3xl">select your sex</h1>
       </div>
-      <div className="flex justify-center gap-8 h-3/6">
+      <div className="flex justify-center gap-10 h-3/6">
         <Button
           onClick={femaleSelectHandler}
           label="female"
@@ -40,10 +49,14 @@ const SexSurvey = () => {
         <Button
           onClick={otherSelectHandler}
           label="other"
-          className={gender === "other" ? "w-1/4 text-white border bg-purple-800 hover:bg-purple-800" : "w-1/4 bg-purple-200 hover:bg-purple-700"}
+          className={
+            gender === "other"
+              ? "w-1/4 text-white border bg-purple-800 hover:bg-purple-800"
+              : "w-1/4 bg-purple-200 hover:bg-purple-700"
+          }
         />
       </div>
-    </Fragment>
+    </div>
   );
 };
 
