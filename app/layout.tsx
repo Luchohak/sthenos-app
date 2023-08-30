@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { Providers } from "./redux/provider";
 import Link from "next/link";
-import { UserProvider } from '@auth0/nextjs-auth0/client'
+import { UserProvider } from "@auth0/nextjs-auth0/client";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -55,9 +55,23 @@ export default function RootLayout({
             >
               trainees
             </Link>
+            <a
+              href="/profile"
+              className="rounded py-2 px-4 hover:bg-slate-400 hover:text-slate-800"
+            >
+              profile
+            </a>
+            <a
+              href="/api/auth/login"
+              className="rounded py-2 px-4 hover:bg-slate-400 hover:text-slate-800"
+            >
+              login
+            </a>
           </div>
         </nav>
-        <Providers>{children}</Providers>
+        <UserProvider>
+          <Providers>{children}</Providers>
+        </UserProvider>
       </body>
     </html>
   );
