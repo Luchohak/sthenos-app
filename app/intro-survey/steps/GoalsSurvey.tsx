@@ -31,9 +31,9 @@ const GoalsSurvey: React.FC<GoalsSurveyProps> = ({ goals, onSelectGoal }) => {
   },[selectedGoals, onSelectGoal])
 
   return (
-    <div>
+    <div className="w-full">
       <div className="w-full my-4 text-center">
-        <h1 className="text-3xl">choose the main reasons why you're here</h1>
+        <h1 className="text-3xl">i'm here to:</h1>
       </div>
       <div className="flex flex-col gap-3 w-4/6 m-auto">
         {goalsList.map((goal) => (

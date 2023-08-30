@@ -36,7 +36,7 @@ const ExperienceSurvey: React.FC<ExperienceSurveyProps> = ({experienceList, onEx
   return (
     <div>
       <div className="w-full my-4 text-center">
-        <h1 className="text-3xl">Select any previous experience</h1>
+        <h1 className="text-3xl">any previous experience?</h1>
       </div>
       <div className="flex flex-col gap-3 w-4/6 m-auto">
         {experienceEntries.map((experienceItem) => (
