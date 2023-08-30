@@ -23,11 +23,11 @@ const SexSurvey: React.FC<SexSurveyProps> = ({ sex, onSexSelect }) => {
   };
 
   return (
-    <Fragment>
+    <div className="flex flex-col h-full w-full justify-center">
       <div className="w-full my-4 text-center">
         <h1 className="text-3xl">select your sex</h1>
       </div>
-      <div className="flex justify-center gap-8 h-3/6">
+      <div className="flex justify-center gap-10 h-3/6">
         <Button
           onClick={femaleSelectHandler}
           label="female"
@@ -56,7 +56,7 @@ const SexSurvey: React.FC<SexSurveyProps> = ({ sex, onSexSelect }) => {
           }
         />
       </div>
-    </Fragment>
+    </div>
   );
 };
 

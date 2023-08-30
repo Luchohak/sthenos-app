@@ -9,8 +9,8 @@ const HeightSurvey: React.FC<HeightSurveyProps> = ({
   height,
   onHeightSelect,
 }) => {
-  const heightOptions = Array.from({ length: 51 }, (_, index) =>
-    (index + 150).toString()
+  const heightOptions = Array.from({ length: 61 }, (_, index) =>
+    (index + 140).toString()
   );
 
   return (

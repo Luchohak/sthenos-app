@@ -9,8 +9,8 @@ const WeightSurvey: React.FC<WeightSurveyProps> = ({
   weight,
   onWeightSelect,
 }) => {
-  const weightOptions = Array.from({ length: 71 }, (_, index) =>
-    (index + 50).toString()
+  const weightOptions = Array.from({ length: 101 }, (_, index) =>
+    (index + 30).toString()
   );
   return (
     <div className="flex flex-col items-center w-full">

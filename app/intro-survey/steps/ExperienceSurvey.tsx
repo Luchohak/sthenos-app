@@ -3,11 +3,11 @@ import { useState, useEffect } from "react";
 
 interface ExperienceSurveyProps {
   experienceList: string[];
-  onExperienceSelect: (experience: string[]) => void;
+  onExperienceSelect: (experienceList: string[]) => void;
 }
 
 const ExperienceSurvey: React.FC<ExperienceSurveyProps> = ({experienceList, onExperienceSelect}) => {
-  const [selectedExperience, setSelectedExperience] = useState<string[]>([]);
+  const [selectedExperience, setSelectedExperience] = useState<string[]>(experienceList);
 
   const experienceEntries = [
     "I've done bodyweight training for some time",
@@ -36,14 +36,14 @@ const ExperienceSurvey: React.FC<ExperienceSurveyProps> = ({experienceList, onEx
   return (
     <div>
       <div className="w-full my-4 text-center">
-        <h1 className="text-3xl">Select any previous experience</h1>
+        <h1 className="text-3xl">any previous experience?</h1>
       </div>
-      <div className="flex flex-col gap-3">
+      <div className="flex flex-col gap-3 w-4/6 m-auto">
         {experienceEntries.map((experienceItem) => (
           <Button
             className={`bg-purple-300 hover:bg-purple-700 ${
               selectedExperience.includes(experienceItem)
-                ? "text-white border-2 bg-purple-700"
+                ? "text-white border-4 bg-purple-700"
                 : ""
             }`}
             key={experienceItem}

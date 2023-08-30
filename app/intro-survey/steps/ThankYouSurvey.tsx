@@ -2,9 +2,9 @@ import Link from "next/link";
 
 const ThankYouSurvey = () => {
   return (
-    <div className="flex flex-col items-center">
+    <div className="flex flex-col items-center text-center">
       <h1 className="text-3xl my-4">thanks!</h1>
-      <p className="text-lg">
+      <p className="text-2xl">
         this will help your coach align your workouts with your goals and experience
       </p>
       <Link
