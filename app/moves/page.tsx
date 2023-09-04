@@ -105,7 +105,7 @@ function Move({ move, onClick }: any) {
 
   return (
     <div
-      className="rounded py-4 px-3 bg-slate-500 text-slate-200  hover:bg-slate-200 hover:text-slate-500"
+      className="rounded py-4 px-3 cursor-pointer bg-slate-600 text-slate-200  hover:bg-slate-200 hover:text-slate-600"
       onClick={onClick}
     >
       <div>
