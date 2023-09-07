@@ -57,8 +57,8 @@ const MovesPage = () => {
   };
 
   return (
-    <section>
-      <h1 className="text-2xl">Moves</h1>
+    <section className="flex text-center flex-col">
+      <h1 className="text-2xl my-5">MOVES</h1>
       <div className="grid grid-cols-4 gap-5">
         {movesList.map((move) => (
           <Move
@@ -69,7 +69,7 @@ const MovesPage = () => {
         ))}
       </div>
       <Button
-        className="text-2xl bg-slate-200 hover:bg-slate-800"
+        className="text-2xl bg-slate-200 hover:bg-slate-800 w-14 h-14 my-5"
         label="+"
         onClick={openModalHandler}
       ></Button>
@@ -105,11 +105,11 @@ function Move({ move, onClick }: any) {
 
   return (
     <div
-      className="rounded py-4 px-3 bg-slate-500 text-slate-200  hover:bg-slate-200 hover:text-slate-500"
+      className="rounded py-4 px-3 cursor-pointer bg-slate-600 text-slate-200  hover:bg-slate-200 hover:text-slate-600"
       onClick={onClick}
     >
       <div>
-        <h2 className="text-lg">{name}</h2>
+        <h2 className="text-lg font-bold">{name}</h2>
         <p className="text-md">{description}</p>
       </div>
     </div>
