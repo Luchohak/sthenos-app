@@ -1,10 +1,11 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { ChangeEvent } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import Button from "../components/UI/Button";
+import { useAuth0 } from "@auth0/auth0-react";
 
+import Button from "../components/UI/Button";
 import GetStartedSurvey from "./steps/GetStartedSurvey";
 import NameSurvey from "./steps/NameSurvey";
 import AgeSurvey from "./steps/AgeSurvey";
@@ -127,9 +128,15 @@ const SurveyPage = () => {
     }
   };
 
+  const { loginWithRedirect } = useAuth0();
+
+ 
+
   return (
     <section className="flex w-4/6 h-full flex-col justify-between p-6 rounded bg-slate-800 drop-shadow-2xl">
-      <div className="grow w-full h-full flex items-center justify-center"> {stepManager()}</div>
+      <div className="grow w-full h-full flex items-center justify-center">
+        {stepManager()}
+      </div>
       {step === 0 || step === 8 ? (
         ""
       ) : (
