@@ -23,31 +23,28 @@ export default function CreateMove() {
 
   return (
     <div className="mt-12">
-      <h1 className="text-xl text-slate-700">New Move: </h1>
       <form onSubmit={createMove} >
         <div>
-          <label htmlFor="name" />{" "}
           <input
             id="name"
-            className="rounded my-2 p-2 bg-slate-200 text-slate-700"
+            className="rounded my-3 p-2 bg-slate-200 text-slate-700"
             type="text"
-            placeholder="Name"
+            placeholder="name"
             value={name}
             onChange={(e) => setName(e.target.value)}
           />
         </div>
         <div>
-          <label htmlFor="description" />
           <input
             id="description"
-            className="rounded p-2 bg-slate-200 text-slate-700"
+            className="rounded p-2 my-3 bg-slate-200 text-slate-700"
             type="text"
-            placeholder="Description"
+            placeholder="description"
             value={description}
             onChange={(e) => setDescription(e.target.value)}
           />
         </div>
-        <Button type={"submit"} label={"Create"} />
+        <Button className=" my-6 bg-slate-600 text-slate-50 hover:bg-green-700" type={"submit"} label={"new move"} />
       </form>
     </div>
   );
