@@ -55,12 +55,12 @@ export default function RootLayout({
             >
               trainees
             </Link>
-            <a
+            <Link
               href="/profile"
               className="rounded py-2 px-4 hover:bg-slate-400 hover:text-slate-800"
             >
               profile
-            </a>
+            </Link>
             <a
               href="/api/auth/login"
               className="rounded py-2 px-4 hover:bg-slate-400 hover:text-slate-800"
