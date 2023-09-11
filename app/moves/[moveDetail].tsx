@@ -11,7 +11,7 @@ const MoveDetailPage: React.FC<MoveDetailProps> = ({
 }) => {
   return (
     <>
-      <h1 className="text-2xl">Move - {name}</h1>
+      <h2 className="text-2xl">Move - {name}</h2>
       <div>
         <p>{description}</p>
         <p>Id: {id}</p>

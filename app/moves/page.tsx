@@ -109,7 +109,7 @@ function Move({ move, onClick }: any) {
       onClick={onClick}
     >
       <div>
-        <h2 className="text-lg font-bold">{name}</h2>
+        <h1 className="text-lg font-bold">{name}</h1>
         <p className="text-md">{description}</p>
       </div>
     </div>
